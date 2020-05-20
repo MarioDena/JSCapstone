@@ -1,11 +1,23 @@
-import 'phaser';
-
-import { SimpleScene } from './scenes/simple-scene';
-
-const gameConfig = {
-  width: 680,
-  height: 400,
-  scene: SimpleScene
-};
-
-new Phaser.Game(gameConfig);
+import 'phaser'
+import config from './config/config';
+import GameScene from './scenes/GameScene';
+import BootScene from './scenes/BootScene';
+import PreloaderScene from './scenes/PreloadScene';
+import TitleScene from './scenes/TitleScene';
+import OptionsScene from './scenes/OptionsScene';
+import CreditsScene from './scenes/CreditsScene';
+ 
+class Game extends Phaser.Game {
+  constructor () {
+    super(config);
+    this.scene.add('Boot', BootScene);
+    this.scene.add('Preloader', PreloaderScene);
+    this.scene.add('Title', TitleScene);
+    this.scene.add('Options', OptionsScene);
+    this.scene.add('Credits', CreditsScene);
+    this.scene.add('Game', GameScene);
+    this.scene.start('Boot');
+  }
+}
+ 
+window.game = new Game();
