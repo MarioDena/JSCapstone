@@ -1,4 +1,5 @@
 import 'phaser';
+import config from '../config/config';
 
 // eslint-disable-next-line no-undef
 export default class PreloaderScene extends Phaser.Scene {
@@ -7,9 +8,8 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.image(400, 200, 'logo');
+    this.add.image(config.width / 2, 100, 'logo');
 
-    // display progress bar
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
@@ -50,7 +50,6 @@ export default class PreloaderScene extends Phaser.Scene {
     });
     assetText.setOrigin(0.5, 0.5);
 
-    // update progress bar
     this.load.on('progress', (value) => {
       // eslint-disable-next-line radix
       percentText.setText(`${parseInt(value * 100)}%`);
@@ -59,12 +58,10 @@ export default class PreloaderScene extends Phaser.Scene {
       progressBar.fillRect(250, 280, 300 * value, 30);
     });
 
-    // update file progress text
     this.load.on('fileprogress', (file) => {
       assetText.setText(`Loading asset: ${file.key}`);
     });
 
-    // remove progress bar when complete
     this.load.on('complete', () => {
       progressBar.destroy();
       progressBox.destroy();
@@ -76,10 +73,11 @@ export default class PreloaderScene extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(3000, this.ready, [], this);
 
-    // load assets needed in our game
-    this.load.image('playButton', './src/assets/ui/PlayButton.png');
-    this.load.image('playButton2', './src/assets/ui/PlayButtonPressed.png');
-    this.load.image('phaserLogo', './src/assets/logo.png');
+    this.load.image('playButton', './src/assets/ui/Button.png');
+    this.load.image('playButton2', './src/assets/ui/ButtonPressed.png');
+    this.load.image('box', './src/assets/ui/Box.png');
+    this.load.image('checkedBox', './src/assets/ui/CheckedBox.png');
+    this.load.audio('bgMusic', ['./src/assets/title.mp3']);
   }
 
   init() {
@@ -94,7 +92,6 @@ export default class PreloaderScene extends Phaser.Scene {
     }
   }
 
-  // eslint-disable-next-line class-methods-use-this
   create() {
   }
 }
