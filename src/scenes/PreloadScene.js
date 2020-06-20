@@ -13,16 +13,16 @@ export default class PreloaderScene extends Phaser.Scene {
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
-    progressBox.fillRect(240, 270, 320, 50);
+    progressBox.fillRect(100, 150, 200, 20);
 
     const { width } = this.cameras.main;
     const { height } = this.cameras.main;
     const loadingText = this.make.text({
       x: width / 2,
-      y: height / 2 - 50,
+      y: height / 2 + 100,
       text: 'Loading...',
       style: {
-        font: '20px monospace',
+        font: '14px monospace',
         fill: '#ffffff',
       },
     });
@@ -33,7 +33,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 - 5,
       text: '0%',
       style: {
-        font: '18px monospace',
+        font: '12px monospace',
         fill: '#ffffff',
       },
     });
@@ -44,7 +44,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 + 50,
       text: '',
       style: {
-        font: '18px monospace',
+        font: '12px monospace',
         fill: '#ffffff',
       },
     });
@@ -55,7 +55,7 @@ export default class PreloaderScene extends Phaser.Scene {
       percentText.setText(`${parseInt(value * 100)}%`);
       progressBar.clear();
       progressBar.fillStyle(0xffffff, 1);
-      progressBar.fillRect(250, 280, 300 * value, 30);
+      progressBar.fillRect(100, 150, 200 * value, 15);
     });
 
     this.load.on('fileprogress', (file) => {
@@ -77,6 +77,8 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.image('playButton2', './src/assets/ui/ButtonPressed.png');
     this.load.image('box', './src/assets/ui/Box.png');
     this.load.image('checkedBox', './src/assets/ui/CheckedBox.png');
+    this.load.image('tiles', './src/assets/map/tileset.png');
+    this.load.tilemapTiledJSON('map', './src/assets/map/map.json');
     this.load.audio('bgMusic', ['./src/assets/title.mp3']);
   }
 

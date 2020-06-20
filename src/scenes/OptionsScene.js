@@ -32,24 +32,27 @@ export default class CreditsScene extends Phaser.Scene {
   create() {
     this.model = this.sys.game.globals.model;
 
-    this.text = this.add.text(300, 100, 'Options', { fontSize: 40 });
-    this.musicButton = this.add.image(250, 200, 'checkedBox').setInteractive();
-    this.musicText = this.add.text(300, 190, 'Music Enabled', { fontSize: 24 });
+    this.text = this.add.text(160, 20, 'Options', { fontSize: 20 });
+    this.musicButton = this.add.image(140, 100, 'checkedBox').setInteractive();
+    this.musicText = this.add.text(160, 94, 'Music Enabled', { fontSize: 12 });
 
-    this.soundButton = this.add.image(250, 300, 'checkedBox').setInteractive();
-    this.soundText = this.add.text(300, 290, 'Sound Enabled', { fontSize: 24 });
+    this.soundButton = this.add.image(140, 150, 'checkedBox').setInteractive();
+    this.soundText = this.add.text(160, 144, 'Sound Enabled', { fontSize: 12 });
 
-    this.menuButton = this.add.sprite(400, 500, 'playButton').setInteractive();
-    this.menuText = this.add.text(0, 0, 'Back', { fontSize: '32px', fill: '#fff' });
+    this.menuButton = this.add.sprite(200, 250, 'playButton').setInteractive();
+    this.menuText = this.add.text(0, 0, 'Back', { fontSize: '16px', fill: '#fff' });
     // eslint-disable-next-line no-undef
+
+    this.menuButton.setScale(0.5, 0.5);
+
     Phaser.Display.Align.In.Center(this.menuText, this.menuButton);
 
     this.menuButton.on('pointerdown', (pointer) => {
       this.scene.start('Title');
     });
 
-    this.musicButton.setScale(0.5, 0.5);
-    this.soundButton.setScale(0.5, 0.5);
+    this.musicButton.setScale(0.25, 0.25);
+    this.soundButton.setScale(0.25, 0.25);
 
     this.musicButton.on('pointerdown', (pointer) => {
       this.model.musicOn = !this.model.musicOn;

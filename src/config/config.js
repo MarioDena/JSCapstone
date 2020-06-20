@@ -4,8 +4,9 @@ export default {
   // eslint-disable-next-line no-undef
   type: Phaser.AUTO,
   parent: 'content',
-  width: 800,
-  height: 600,
+  width: 400,
+  height: 320,
+  zoom: 2,
   pixelArt: true,
   physics: {
     default: 'arcade',

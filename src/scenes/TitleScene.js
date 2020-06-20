@@ -17,7 +17,7 @@ export default class TitleScene extends Phaser.Scene {
     Phaser.Display.Align.In.Center(
       gameObject,
       // eslint-disable-next-line max-len
-      this.add.zone(config.width / 2, config.height / 2 - offset * 100, config.width, config.height),
+      this.add.zone(config.width / 2, config.height / 2 - offset * 40, config.width, config.height),
     );
   }
 
@@ -31,25 +31,29 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(400, 120, 'title');
+    this.title = this.add.image(200, 60, 'title');
+    this.title.setScale(0.5, 0.5);
     this.gameButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.gameButton);
-    this.gameButton.setScale(1, 1);
 
-    this.gameText = this.add.text(0, 0, 'Play', { fontSize: '32px', fill: '#fff' });
+    this.gameText = this.add.text(0, 0, 'Play', { fontSize: '16px', fill: '#fff' });
     this.centerButtonText(this.gameText, this.gameButton);
 
     this.optionsButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.optionsButton, -1);
 
-    this.optionsText = this.add.text(0, 0, 'Options', { fontSize: '32px', fill: '#fff' });
+    this.optionsText = this.add.text(0, 0, 'Options', { fontSize: '16px', fill: '#fff' });
     this.centerButtonText(this.optionsText, this.optionsButton);
 
     this.ScoreButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.ScoreButton, -2);
 
-    this.ScoreText = this.add.text(0, 0, 'Scores', { fontSize: '32px', fill: '#fff' });
+    this.ScoreText = this.add.text(0, 0, 'Scores', { fontSize: '16px', fill: '#fff' });
     this.centerButtonText(this.ScoreText, this.ScoreButton);
+
+    this.gameButton.setScale(0.5, 0.5);
+    this.optionsButton.setScale(0.5, 0.5);
+    this.ScoreButton.setScale(0.5, 0.5);
 
     // eslint-disable-next-line no-unused-vars
     this.ScoreButton.on('pointerdown', (pointer) => {
