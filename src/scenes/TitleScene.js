@@ -9,7 +9,7 @@ export default class TitleScene extends Phaser.Scene {
 
   // eslint-disable-next-line class-methods-use-this
   preload() {
-    this.load.image('title', './src/assets/title.jpeg');
+
   }
 
   centerButton(gameObject, offset = 0) {
@@ -31,24 +31,24 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
-    this.title = this.add.image(200, 60, 'title');
-    this.title.setScale(0.5, 0.5);
+    this.add.image(200, 160, 'title');
+    this.text = this.add.text(88, 20, 'Retro Adventure', { font: '22px Dragon' });
     this.gameButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.gameButton);
 
-    this.gameText = this.add.text(0, 0, 'Play', { fontSize: '16px', fill: '#fff' });
+    this.gameText = this.add.text(0, 0, 'Play', { font: '14px Dragon', fill: '#fff' });
     this.centerButtonText(this.gameText, this.gameButton);
 
     this.optionsButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.optionsButton, -1);
 
-    this.optionsText = this.add.text(0, 0, 'Options', { fontSize: '16px', fill: '#fff' });
+    this.optionsText = this.add.text(0, 0, 'Options', { font: '14px Dragon', fill: '#fff' });
     this.centerButtonText(this.optionsText, this.optionsButton);
 
     this.ScoreButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.ScoreButton, -2);
 
-    this.ScoreText = this.add.text(0, 0, 'Scores', { fontSize: '16px', fill: '#fff' });
+    this.ScoreText = this.add.text(0, 0, 'Scores', { font: '14px Dragon', fill: '#fff' });
     this.centerButtonText(this.ScoreText, this.ScoreButton);
 
     this.gameButton.setScale(0.5, 0.5);

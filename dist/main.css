@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Dragon';
+  src: url('./src/assets/font/Dragon.ttf');
+  font-weight: 400;
+  font-weight: normal;
+}
+
 canvas {
     display : block;   margin : 0 auto;
   }

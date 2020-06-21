@@ -32,15 +32,15 @@ export default class CreditsScene extends Phaser.Scene {
   create() {
     this.model = this.sys.game.globals.model;
 
-    this.text = this.add.text(160, 20, 'Options', { fontSize: 20 });
+    this.text = this.add.text(170, 20, 'Options', { font: '16px Dragon' });
     this.musicButton = this.add.image(140, 100, 'checkedBox').setInteractive();
-    this.musicText = this.add.text(160, 94, 'Music Enabled', { fontSize: 12 });
+    this.musicText = this.add.text(160, 94, 'Music Enabled', { font: '12px Dragon' });
 
     this.soundButton = this.add.image(140, 150, 'checkedBox').setInteractive();
-    this.soundText = this.add.text(160, 144, 'Sound Enabled', { fontSize: 12 });
+    this.soundText = this.add.text(160, 144, 'Sound Enabled', { font: '12px Dragon' });
 
     this.menuButton = this.add.sprite(200, 250, 'playButton').setInteractive();
-    this.menuText = this.add.text(0, 0, 'Back', { fontSize: '16px', fill: '#fff' });
+    this.menuText = this.add.text(0, 0, 'Back', { font: '14px Dragon', fill: '#fff' });
     // eslint-disable-next-line no-undef
 
     this.menuButton.setScale(0.5, 0.5);
@@ -62,6 +62,14 @@ export default class CreditsScene extends Phaser.Scene {
     this.soundButton.on('pointerdown', (pointer) => {
       this.model.soundOn = !this.model.soundOn;
       this.updateAudio();
+    });
+
+    this.menuButton.on('pointerover', (pointer) => {
+      this.menuButton.setTexture('playButton2');
+    });
+
+    this.menuButton.on('pointerout', (pointer) => {
+      this.menuButton.setTexture('playButton');
     });
 
     this.updateAudio();
