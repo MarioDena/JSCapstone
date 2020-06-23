@@ -223,7 +223,7 @@ export default class GameScene extends Phaser.Scene {
           this.player.body.setVelocityX(80);
         }
         if (this.player.anims.currentFrame.index === 3 || this.player.anims.currentFrame.index === 9 || this.player.anims.currentFrame.index === 14) {
-          if (this.playingSound === false) {
+          if (this.playingSound === false && this.model.soundOn === true) {
             this.playingSound = true;
             this.sound.play('swing1', { volume: 0.4 });
           }
@@ -236,7 +236,9 @@ export default class GameScene extends Phaser.Scene {
             this.slime.anims.play('hittingEn');
             if (this.damageCalc === false) {
               this.damageCalc = true;
-              this.sound.play('hitSlime', { volume: 0.2, pitch: 3 });
+              if (this.model.soundOn === true) {
+                this.sound.play('hitSlime', { volume: 0.2, pitch: 3 });
+              }
               this.score += 10;
               this.createFloatingText(this.slime.x - 5, this.slime.y - 5, '10', 0xffff00);
             }
