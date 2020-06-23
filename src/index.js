@@ -8,6 +8,7 @@ import TitleScene from './scenes/TitleScene';
 import ScoreScene from './scenes/ScoreScene';
 import OptionsScene from './scenes/OptionsScene';
 
+
 // eslint-disable-next-line no-undef
 class Game extends Phaser.Game {
   constructor() {

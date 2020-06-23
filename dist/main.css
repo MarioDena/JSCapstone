@@ -5,6 +5,18 @@
   font-weight: normal;
 }
 
+body {
+ background-color: black;
+}
+
 canvas {
-    display : block;   margin : 0 auto;
-  }
+  border-radius: 20px;
+}
+
+#parent {
+  display: block;
+  width: 800;
+  height: 640px;
+  margin: 0 auto;
+}
+

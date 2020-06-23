@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-undef */
 import 'phaser';
 import config from '../config/config';
 
@@ -7,23 +9,15 @@ export default class TitleScene extends Phaser.Scene {
     super('Title');
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  preload() {
-
-  }
-
   centerButton(gameObject, offset = 0) {
-    // eslint-disable-next-line no-undef
     Phaser.Display.Align.In.Center(
       gameObject,
-      // eslint-disable-next-line max-len
       this.add.zone(config.width / 2, config.height / 2 - offset * 40, config.width, config.height),
     );
   }
 
   // eslint-disable-next-line class-methods-use-this
   centerButtonText(gameText, gameButton) {
-    // eslint-disable-next-line no-undef
     Phaser.Display.Align.In.Center(
       gameText,
       gameButton,
@@ -36,40 +30,40 @@ export default class TitleScene extends Phaser.Scene {
     this.gameButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.gameButton);
 
-    this.gameText = this.add.text(0, 0, 'Play', { font: '14px Dragon', fill: '#fff' });
+    this.gameText = this.add.text(0, 0, 'Play', { font: '10px Dragon', fill: '#fff' });
     this.centerButtonText(this.gameText, this.gameButton);
 
     this.optionsButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.optionsButton, -1);
 
-    this.optionsText = this.add.text(0, 0, 'Options', { font: '14px Dragon', fill: '#fff' });
+    this.optionsText = this.add.text(0, 0, 'Options', { font: '10px Dragon', fill: '#fff' });
     this.centerButtonText(this.optionsText, this.optionsButton);
 
     this.ScoreButton = this.add.sprite(300, 200, 'playButton').setInteractive();
     this.centerButton(this.ScoreButton, -2);
 
-    this.ScoreText = this.add.text(0, 0, 'Scores', { font: '14px Dragon', fill: '#fff' });
+    this.ScoreText = this.add.text(0, 0, 'Scores', { font: '10px Dragon', fill: '#fff' });
     this.centerButtonText(this.ScoreText, this.ScoreButton);
 
-    this.gameButton.setScale(0.5, 0.5);
-    this.optionsButton.setScale(0.5, 0.5);
-    this.ScoreButton.setScale(0.5, 0.5);
+    this.gameButton.setScale(0.4, 0.4);
+    this.optionsButton.setScale(0.4, 0.4);
+    this.ScoreButton.setScale(0.4, 0.4);
 
-    // eslint-disable-next-line no-unused-vars
+
     this.ScoreButton.on('pointerdown', (pointer) => {
       this.scene.start('Scores');
     });
 
-    // eslint-disable-next-line no-unused-vars
+
     this.optionsButton.on('pointerdown', (pointer) => {
       this.scene.start('Options');
     });
 
     this.gameButton.on(
       'pointerdown',
-      // eslint-disable-next-line no-unused-vars
       (pointer) => {
-        this.scene.start('Game');
+        this.scene.stop('Title');
+        this.scene.run('Game');
       },
     );
 

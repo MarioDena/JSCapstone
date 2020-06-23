@@ -1,5 +1,4 @@
 import 'phaser';
-import config from '../config/config';
 
 // eslint-disable-next-line no-undef
 export default class PreloaderScene extends Phaser.Scene {
@@ -8,8 +7,6 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   preload() {
-    this.add.image(config.width / 2, 100, 'logo');
-
     const progressBar = this.add.graphics();
     const progressBox = this.add.graphics();
     progressBox.fillStyle(0x222222, 0.8);
@@ -30,10 +27,10 @@ export default class PreloaderScene extends Phaser.Scene {
 
     const percentText = this.make.text({
       x: width / 2,
-      y: height / 2 - 5,
+      y: height / 2,
       text: '0%',
       style: {
-        font: '8px Dragon',
+        font: '10px Dragon',
         fill: '#ffffff',
       },
     });
@@ -44,7 +41,7 @@ export default class PreloaderScene extends Phaser.Scene {
       y: height / 2 + 50,
       text: '',
       style: {
-        font: '8px Dragon',
+        font: '10px Dragon',
         fill: '#ffffff',
       },
     });
@@ -82,6 +79,9 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.tilemapTiledJSON('map', './src/assets/map/map.json');
     this.load.audio('bgMusic', ['./src/assets/title.mp3']);
     this.load.spritesheet('player', './src/assets/adventurer.png', { frameWidth: 50, frameHeight: 37 });
+    this.load.spritesheet('slime', './src/assets/slime.png', { frameWidth: 32, frameHeight: 25 });
+    this.load.audio('swing1', ['./src/assets/swish1.wav']);
+    this.load.audio('hitSlime', ['./src/assets/slime.wav']);
   }
 
   init() {
@@ -94,8 +94,5 @@ export default class PreloaderScene extends Phaser.Scene {
     if (this.readyCount === 2) {
       this.scene.start('Title');
     }
-  }
-
-  create() {
   }
 }
