@@ -60,6 +60,7 @@ export default class GameScene extends Phaser.Scene {
 
     this.sendButton.on('pointerup', (pointer) => {
       const inputValue = document.getElementById('input').value;
+      this.sendButton.disableInteractive();
       if (inputValue === '') {
         submitScore('NoName', this.score).then(data => {
           this.model.isPaused = false;
