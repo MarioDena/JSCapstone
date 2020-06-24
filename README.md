@@ -1,6 +1,7 @@
-RPG game for microverse capstone project
 ![img](https://img.shields.io/github/issues/MarioDena/Responsive-Design)
 ![img2](https://img.shields.io/github/license/MarioDena/Responsive-Design)
+
+RPG game for microverse capstone project
 
 # JSCapstone
 <br />
@@ -13,13 +14,23 @@ RPG game for microverse capstone project
 	 RPG Game DEMO
   </h3>
 
-  RPG game for microverse capstone project
+  <p align="center">RPG game for microverse capstone project<p>
 
   ![img2](https://raw.githubusercontent.com/MarioDena/reviewImages/master/apr2020/img8.png)
+
+# Live version
+
+
+
+# Controls
+
+* Use the Arrow keys for movement
+* Hold space bar for attack
 
 # Validations
 
 - eslint
+- jest for testing
 
 # Get Started
 
@@ -33,6 +44,7 @@ Simply clone the project and run `npm install` && `npm run-script build`
 * Animations
 * Functional High Scores Board
 * Collision Detection based on direction  
+* Jest Test
 
 
 # Built With
@@ -48,8 +60,8 @@ Simply clone the project and run `npm install` && `npm run-script build`
 
 # Author
 
-* [Mario Dena](https://github.com/MarioDena).
+* [Mario Dena](https://github.com/MarioDena)
 
 # License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details 
+This project is licensed under the MIT License
