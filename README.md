@@ -3,7 +3,7 @@
 
 RPG game for microverse capstone project
 
-# JSCapstone
+# RPG Demo
 <br />
 <p align="center">
   <a href="https://github.com/MarioDena">
