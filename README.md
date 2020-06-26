@@ -3,7 +3,7 @@
 
 RPG game for microverse capstone project
 
-# RPG Demo
+# JSCapstone
 <br />
 <p align="center">
   <a href="https://github.com/MarioDena">
@@ -14,7 +14,7 @@ RPG game for microverse capstone project
 	 RPG Game DEMO
   </h3>
 
-  <p align="center">RPG game for microverse capstone project<p>
+  <p align="center">RPG game for Microverse capstone project.<p>
 
   ![img2](https://raw.githubusercontent.com/MarioDena/reviewImages/master/apr2020/img8.png)
 
@@ -24,8 +24,21 @@ RPG game for microverse capstone project
     Here
   </a>
 
+# About 
+
+This demo shows how collision detection can be implemented based on not only the collision itself but distance during the collision and direction of the object facing. And also how an API can be used to store players data. In the demo you get points when you hit the "punching bag" slime. To exit you can just press the ESC key and submit your score.
+
+This is a demo for physics implementation, events and scene reloading/handling. Don't expect a full game.
+
+# How to run locally
+
+* Simply clone the project run `npm install` and `npm run-script build`
+* Open the generated index.html on the dist folder. 
+
+
 # Controls
 
+* Use ESC to open the menu and submit your score
 * Use the Arrow keys for movement
 * Hold space bar for attack
 
